@@ -1,17 +1,13 @@
 {
-  "name": "hrms-backend",
+  "name": "hire-nest-backend",
   "version": "1.0.0",
-  "description": "HRMS Backend",
+  "description": "Hire Nest Backend",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx watch --env-file=.env src/index.ts",
     "build": "rm -rf dist & tsc -p tsconfig.json",
     "start": "node dist/index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/dilkhush-raj/hrms.git"
   },
   "author": "Dilkhush Raj",
   "license": "MIT",
