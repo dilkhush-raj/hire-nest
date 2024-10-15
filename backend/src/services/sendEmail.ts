@@ -5,11 +5,13 @@ const sendEmail = async ({
   to,
   subject,
   html,
+  text,
 }: {
   from: string;
   to: string;
   subject: string;
   html: string;
+  text?: string;
 }) => {
   const transporter = nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
@@ -28,6 +30,7 @@ const sendEmail = async ({
       to: to,
       subject: subject,
       html: html,
+      text: text,
     });
     return mail;
   } catch (error) {
