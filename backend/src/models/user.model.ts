@@ -7,6 +7,8 @@ interface UserPayload {
   name: string;
   email: string;
   phoneNumber: string;
+  companyName: string;
+  employeeCount: number;
   blocked: boolean;
 }
 
@@ -28,6 +30,14 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true,
+    },
+    companyName: {
+      type: String,
+      required: true,
+    },
+    employeeCount: {
+      type: Number,
+      required: true,
     },
     refreshToken: {type: String},
     emailVerified: {
@@ -104,6 +114,8 @@ UserSchema.methods.generateAccessToken = async function () {
     email: this.email,
     phoneNumber: this.phoneNumber,
     blocked: this.blocked,
+    companyName: this.companyName,
+    employeeCount: this.employeeCount,
   };
 
   const expiresIn = process.env.ACCESS_TOKEN_EXPIRY;
