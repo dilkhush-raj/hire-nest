@@ -2,234 +2,129 @@
 @tailwind components;
 @tailwind utilities;
 
-.poppins-thin {
-  font-family: "Poppins", sans-serif;
+.prompt-thin {
+  font-family: "Prompt", sans-serif;
   font-weight: 100;
   font-style: normal;
 }
 
-.poppins-extralight {
-  font-family: "Poppins", sans-serif;
+.prompt-extralight {
+  font-family: "Prompt", sans-serif;
   font-weight: 200;
   font-style: normal;
 }
 
-.poppins-light {
-  font-family: "Poppins", sans-serif;
+.prompt-light {
+  font-family: "Prompt", sans-serif;
   font-weight: 300;
   font-style: normal;
 }
 
-.poppins-regular {
-  font-family: "Poppins", sans-serif;
+.prompt-regular {
+  font-family: "Prompt", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
-.poppins-medium {
-  font-family: "Poppins", sans-serif;
+.prompt-medium {
+  font-family: "Prompt", sans-serif;
   font-weight: 500;
   font-style: normal;
 }
 
-.poppins-semibold {
-  font-family: "Poppins", sans-serif;
+.prompt-semibold {
+  font-family: "Prompt", sans-serif;
   font-weight: 600;
   font-style: normal;
 }
 
-.poppins-bold {
-  font-family: "Poppins", sans-serif;
+.prompt-bold {
+  font-family: "Prompt", sans-serif;
   font-weight: 700;
   font-style: normal;
 }
 
-.poppins-extrabold {
-  font-family: "Poppins", sans-serif;
+.prompt-extrabold {
+  font-family: "Prompt", sans-serif;
   font-weight: 800;
   font-style: normal;
 }
 
-.poppins-black {
-  font-family: "Poppins", sans-serif;
+.prompt-black {
+  font-family: "Prompt", sans-serif;
   font-weight: 900;
   font-style: normal;
 }
 
-.poppins-thin-italic {
-  font-family: "Poppins", sans-serif;
+.prompt-thin-italic {
+  font-family: "Prompt", sans-serif;
   font-weight: 100;
   font-style: italic;
 }
 
-.poppins-extralight-italic {
-  font-family: "Poppins", sans-serif;
+.prompt-extralight-italic {
+  font-family: "Prompt", sans-serif;
   font-weight: 200;
   font-style: italic;
 }
 
-.poppins-light-italic {
-  font-family: "Poppins", sans-serif;
+.prompt-light-italic {
+  font-family: "Prompt", sans-serif;
   font-weight: 300;
   font-style: italic;
 }
 
-.poppins-regular-italic {
-  font-family: "Poppins", sans-serif;
+.prompt-regular-italic {
+  font-family: "Prompt", sans-serif;
   font-weight: 400;
   font-style: italic;
 }
 
-.poppins-medium-italic {
-  font-family: "Poppins", sans-serif;
+.prompt-medium-italic {
+  font-family: "Prompt", sans-serif;
   font-weight: 500;
   font-style: italic;
 }
 
-.poppins-semibold-italic {
-  font-family: "Poppins", sans-serif;
+.prompt-semibold-italic {
+  font-family: "Prompt", sans-serif;
   font-weight: 600;
   font-style: italic;
 }
 
-.poppins-bold-italic {
-  font-family: "Poppins", sans-serif;
+.prompt-bold-italic {
+  font-family: "Prompt", sans-serif;
   font-weight: 700;
   font-style: italic;
 }
 
-.poppins-extrabold-italic {
-  font-family: "Poppins", sans-serif;
+.prompt-extrabold-italic {
+  font-family: "Prompt", sans-serif;
   font-weight: 800;
   font-style: italic;
 }
 
-.poppins-black-italic {
-  font-family: "Poppins", sans-serif;
+.prompt-black-italic {
+  font-family: "Prompt", sans-serif;
   font-weight: 900;
   font-style: italic;
 }
 
-.navbar {
-  display: flex;
-  padding: 5px 5px;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  height: 80px;
-  background-color: #f9fafb;
-}
-
-.left-nav {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-
-.menu-btn {
-  display: flex;
-  gap: 1rem;
-
-  @media (min-width: 768px) {
-    display: none;
-  }
-}
-
-.layout {
-  @media (min-width: 768px) {
-    padding-left: 280px;
-  }
-}
-
-.menu-btn {
-  display: block;
-  gap: 1rem;
-
-  @media (min-width: 768px) {
-    display: none;
-  }
-}
-
-.flex {
-  display: flex;
-  gap: 1rem;
-}
-
-.capitalize {
-  text-transform: capitalize;
-}
-
-.uppercase {
-  text-transform: uppercase;
-}
-
-.center {
-  display: flex;
-  gap: 5px;
-  justify-content: center;
-  align-items: center;
-}
-
-.h-screen {
-  min-height: 100vh;
-}
-
-.cursor {
-  cursor: pointer;
-}
-
-.lds-ring,
-.lds-ring div {
-  box-sizing: border-box;
-}
-.lds-ring {
-  display: inline-block;
-  position: relative;
-  width: 80px;
-  height: 80px;
-}
-.lds-ring div {
-  box-sizing: border-box;
-  display: block;
-  position: absolute;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
-  border: 8px solid currentColor;
+.loader {
+  width: 50px;
+  padding: 8px;
+  aspect-ratio: 1;
   border-radius: 50%;
-  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: currentColor transparent transparent transparent;
+  background: #25b09b;
+  --_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+  mask: var(--_m);
+  -webkit-mask-composite: source-out;
+  mask-composite: subtract;
+  animation: l3 1s infinite linear;
 }
-.lds-ring div:nth-child(1) {
-  animation-delay: -0.45s;
-}
-.lds-ring div:nth-child(2) {
-  animation-delay: -0.3s;
-}
-.lds-ring div:nth-child(3) {
-  animation-delay: -0.15s;
-}
-@keyframes lds-ring {
-  0% {
-    transform: rotate(0deg);
+@keyframes l3 {
+  to {
+    transform: rotate(1turn);
   }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 100;
-  display: flex;
-  justify-content: center;
-}
-
-.update-user-form {
-  min-width: 500px;
 }

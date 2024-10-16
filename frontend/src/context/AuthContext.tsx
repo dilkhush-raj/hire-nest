@@ -11,7 +11,11 @@ interface User {
   id: string;
   name: string;
   email: string;
-  role: string;
+  phoneNumber: string;
+  blocked: boolean;
+  companyName: string;
+  employeeCount: number;
+  phoneNumberVerified: boolean;
 }
 
 interface AuthContextType {
@@ -44,7 +48,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
 
     async function checkAuth() {
       try {
-        const response = await api.get("/check-auth");
+        const response = await api.post("/check-auth");
         if (response.data.success && isMounted) {
           setIsAuthenticated(true);
           setUser(response.data.user);
