@@ -42,10 +42,6 @@ const registerUser = async (req: Request, res: Response) => {
       return res.status(400).json({error: 'Missing required fields'});
     }
 
-    if (employeeCount < 0) {
-      return res.status(400).json({error: 'Invalid employee count'});
-    }
-
     const formattedEmail = email.toLowerCase().trim();
 
     if (!isValidEmail(formattedEmail)) {
@@ -75,6 +71,12 @@ const registerUser = async (req: Request, res: Response) => {
     return res.status(409).json({error: 'User already exists'});
   }
 
+  const employeeCounts = parseInt(req.body.employeeCount);
+
+  if (employeeCounts < 0) {
+    return res.status(400).json({error: 'Invalid employee count'});
+  }
+
   // Create new user
   const newUser = await User.create({
     name: name,
@@ -82,7 +84,7 @@ const registerUser = async (req: Request, res: Response) => {
     password: password,
     phoneNumber: phoneNumber,
     companyName: companyName,
-    employeeCount: employeeCount,
+    employeeCount: employeeCounts,
   });
 
   // Retrieve created user
@@ -287,4 +289,35 @@ const changePassword = async (req: Request, res: Response) => {
     .json({success: true, message: 'Password changed successfully'});
 };
 
-export {registerUser, loginUser, logOutUser, deleteUser, changePassword};
+const isLoggedIn = async (req: Request, res: Response) => {
+  try {
+    // @ts-ignore
+    const {_id} = req.user;
+    console.log(_id);
+
+    if (!_id) {
+      return res.status(200).json({success: false, message: 'User not found'});
+    }
+
+    const user = await User.findById(_id).select('-password');
+
+    if (!user) {
+      return res.status(200).json({success: false, message: 'User not found'});
+    }
+
+    return res.status(200).json({success: true, user});
+  } catch (error) {
+    return res
+      .status(500)
+      .json({error: 'Failed to check if user is logged in'});
+  }
+};
+
+export {
+  registerUser,
+  loginUser,
+  logOutUser,
+  deleteUser,
+  changePassword,
+  isLoggedIn,
+};

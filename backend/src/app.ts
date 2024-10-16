@@ -2,7 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
 import cookiePraser from 'cookie-parser';
-import {authRoutes} from './routes';
+import {authRoutes, verifyRoutes} from './routes';
 
 const app = express();
 
@@ -29,5 +29,6 @@ app.get('/ping', (req, res) => {
 
 // Routes setup
 app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/verify', verifyRoutes);
 
 export {app};

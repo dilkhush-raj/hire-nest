@@ -1,2 +1,3 @@
 import authRoutes from './auth.routes';
-export {authRoutes};
+import verifyRoutes from './verify.routes';
+export {authRoutes, verifyRoutes};

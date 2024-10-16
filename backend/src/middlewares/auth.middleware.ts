@@ -4,6 +4,7 @@ import {Request, Response, NextFunction} from 'express';
 
 const verifyJWT = async (req: Request, res: Response, next: NextFunction) => {
   const token = req?.cookies?.accessToken;
+  console.log(req);
 
   if (!token) {
     return res.status(401).json({
@@ -29,7 +30,7 @@ const verifyJWT = async (req: Request, res: Response, next: NextFunction) => {
     if (!user) {
       return res.status(401).json({
         status: 'error',
-        message: 'Invalid access token',
+        message: 'User not found',
       });
     }
     // @ts-ignore
@@ -39,7 +40,7 @@ const verifyJWT = async (req: Request, res: Response, next: NextFunction) => {
   } catch (error) {
     return res.status(401).json({
       status: 'error',
-      message: 'Invalid access token',
+      message: error,
     });
   }
 };
