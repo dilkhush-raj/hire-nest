@@ -339,6 +339,9 @@ const sendEmailToCandidates = async (
       endDate,
     }: JobDetails = req.body;
 
+    // @ts-ignore
+    const {email, name} = req?.user;
+
     if (
       !jobTitle ||
       !jobDescription ||
@@ -361,6 +364,7 @@ const sendEmailToCandidates = async (
           <p><strong>Experience Level:</strong> ${experienceLevel}</p>
           <p><strong>Last Date to Apply:</strong> ${new Date(endDate).toLocaleDateString()}</p>
           <p>If you're interested, please apply before the deadline.</p>
+          <p>This job posting is brought to you by ${name}, for further inquiries, please contact at ${email}.</p>
         `,
         text: `
           Job Opportunity: ${jobTitle}
@@ -369,6 +373,8 @@ const sendEmailToCandidates = async (
           Last Date to Apply: ${new Date(endDate).toLocaleDateString()}
           
           If you're interested, please apply before the deadline.
+
+          This job posting is brought to you by ${name}, for further inquiries, please contact at ${email}.
         `,
       };
 
