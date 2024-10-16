@@ -100,7 +100,6 @@ const Login: React.FC = () => {
         );
 
         if (response.status === 200) {
-          // Return success and token or user data
           return { success: true, ...response.data };
         } else {
           return {

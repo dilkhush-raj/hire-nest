@@ -117,7 +117,7 @@ const Signup: React.FC = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:8000/api/v1/auth/register",
+        `${import.meta.env.VITE_BACKEND_HOST_URL}/api/v1/auth/register`,
         {
           method: "POST",
           headers: {

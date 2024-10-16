@@ -16,6 +16,7 @@ interface User {
   companyName: string;
   employeeCount: number;
   phoneNumberVerified: boolean;
+  emailVerified: boolean;
 }
 
 interface AuthContextType {

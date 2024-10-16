@@ -9,7 +9,11 @@ const app = express();
 // App Setup
 app.use(
   cors({
-    origin: ['http://localhost:3000', 'http://localhost:5173'],
+    origin: [
+      'http://localhost:3000',
+      'http://localhost:5173',
+      'https://hirenest.dilkhushraj.me',
+    ],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
   })

@@ -1,5 +1,6 @@
 import React, { useState, FormEvent, ChangeEvent } from "react";
 import { Briefcase, FileText, Star, UserPlus, Calendar, X } from "lucide-react";
+import axios from "axios";
 
 interface FormData {
   jobTitle: string;
@@ -99,14 +100,39 @@ const JobPostingForm: React.FC = () => {
     setIsSubmitting(true);
     setSubmitFeedback(null);
 
-    // Simulating an API call
-    setTimeout(() => {
+    try {
+      // Make a POST request to the API to send the job posting and emails
+      const response = await axios.post(
+        `${
+          import.meta.env.VITE_BACKEND_HOST_URL
+        }/api/v1/auth/send-emails-to-candidates`,
+        formData,
+        {
+          withCredentials: true,
+        }
+      );
+      console.log(response);
+
       setSubmitFeedback({
         type: "success",
-        message: "Job posting submitted successfully!",
+        message:
+          "Job posting submitted successfully and emails sent to candidates!",
       });
+      setFormData({
+        jobTitle: "",
+        jobDescription: "",
+        experienceLevel: "",
+        candidates: [],
+        endDate: "",
+      });
+    } catch (error) {
+      setSubmitFeedback({
+        type: "error",
+        message: "An error occurred while submitting the job posting." + error,
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 2000);
+    }
   };
 
   return (

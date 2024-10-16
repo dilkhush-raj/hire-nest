@@ -4,7 +4,6 @@ import {Request, Response, NextFunction} from 'express';
 
 const verifyJWT = async (req: Request, res: Response, next: NextFunction) => {
   const token = req?.cookies?.accessToken;
-  console.log(req);
 
   if (!token) {
     return res.status(401).json({
